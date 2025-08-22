@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="wrap post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="meta">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %d, %Y" }}</time>
+    {% if page.tags and page.tags.size > 0 %}
+      <span>• {{ page.tags | join: ", " }}</span>
+    {% endif %}
+  </div>
+
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <div class="post-nav">
+    {% if page.previous %}
+      <a class="prev" href="{{ page.previous.url | relative_url }}">&larr; {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a class="next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} &rarr;</a>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <nav class="topbar">
+    <div class="wrap">
+      <a class="brand" href="{{ "/" | relative_url }}">{{ site.title }}</a>
+      <div class="links">
+        <a href="{{ "/" | relative_url }}">Home</a>
+        <a href="{{ "/about" | relative_url }}">About</a>
+        <a href="{{ "/feed.xml" | relative_url }}">RSS</a>
+      </div>
+    </div>
+  </nav>
+
+  {{ content }}
+
+  <footer class="footer">
+    <div class="wrap">
+      <span>© {{ "now" | date: "%Y" }} {{ site.author }}</span>
+      <span class="sep">•</span>
+      <span><a href="https://github.com/{{ site.author }}" target="_blank" rel="noopener">GitHub</a></span>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>My First GitHub Page</title>
-</head>
-<body>
-  <h1>Hello World! 🎉</h1>
-  <p>This is my free website on GitHub Pages.</p>
-</body>
-</html>
+---
+layout: default
+title: Home
+---
+
+<header class="hero">
+  <div class="wrap">
+    <h1>{{ site.title }}</h1>
+    <p class="tagline">{{ site.description }}</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="post-list">
+    {% for post in site.posts %}
+      <article class="card">
+        <a class="card-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <div class="meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+          {% if post.tags and post.tags.size > 0 %}
+            <span>• {{ post.tags | join: ", " }}</span>
+          {% endif %}
+        </div>
+        {% if post.excerpt %}
+          <p class="excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </section>
+</main>

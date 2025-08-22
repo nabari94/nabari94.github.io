@@ -1,0 +1,18 @@
+title: Next Hop Notes
+description: Routing, BGP, EVPN, and the little things that keep packets flowing.
+url: https://nabari94.github.io
+author: "nabari94"
+timezone: America/Toronto
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+paginate: 8
+paginate_path: "/page:num/"
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: "nabari94"
+      tags: [networking]
+plugins: []
